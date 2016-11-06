@@ -1,20 +1,19 @@
 import {Component} from "@angular/core";
 import {NavController, LoadingController} from "ionic-angular/index";
-import {Http, HTTP_PROVIDERS} from "@angular/http";
 import "rxjs/add/operator/map";
 import {ToolboxDetailPage} from "../toolbox-detail/index";
 import {SERVER_BASE_URL} from "../../../utils/constants";
 import {getSpinnerConfig} from "../../../utils/helper";
+import {Http} from "@angular/http";
 
 @Component({
-  templateUrl: "index.html",
-  providers: [Http, HTTP_PROVIDERS]
+  templateUrl: "index.html"
 })
 
 export class ToolboxListPage {
   public toolboxs;
 
-  constructor(public loadingCtrl:LoadingController, public nav:NavController, public http:Http) {
+  constructor(public loadingCtrl: LoadingController, public nav: NavController, public http: Http) {
     this.http = http;
   }
 

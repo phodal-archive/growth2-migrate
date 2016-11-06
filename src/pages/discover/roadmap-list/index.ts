@@ -1,16 +1,13 @@
 import {Component} from "@angular/core";
 import {NavController, LoadingController} from "ionic-angular/index";
-import {Http, HTTP_PROVIDERS} from "@angular/http";
+import {Http} from "@angular/http";
 import "rxjs/add/operator/map";
-import {ToolboxDetailPage} from "../toolbox-detail/index";
 import {SERVER_BASE_URL} from "../../../utils/constants";
 import {getSpinnerConfig} from "../../../utils/helper";
-import {ArticleDetailPage} from "../article-detail/index";
 import {RoadMapDetailPage} from "../roadmap-detail/index";
 
 @Component({
-  templateUrl: "index.html",
-  providers: [Http, HTTP_PROVIDERS]
+  templateUrl: "index.html"
 })
 
 export class RoadMapPage {
