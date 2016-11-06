@@ -36,7 +36,7 @@ export class UserCenterPage {
   }
 
   init() {
-    if (window.cordova) {
+    if (window['cordova']) {
       AppRate.preferences.useLanguage = "zh-Hans";
       AppRate.preferences.storeAppURL.ios = "1078807522";
       AppRate.preferences.storeAppURL.android = "market://details?id=ren.growth";

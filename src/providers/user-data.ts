@@ -1,15 +1,17 @@
 import {Injectable} from "@angular/core";
-import {Events, LocalStorage, Storage} from "ionic-angular";
+import {Events} from "ionic-angular";
+import {Storage} from "@ionic/storage";
 import {Http} from "@angular/http";
 import "rxjs/add/operator/map";
 
 @Injectable()
 export class UserData {
   HAS_LOGGED_IN = "hasLoggedIn";
-  storage = new Storage(LocalStorage);
   public hasLogin = false;
+  public localStorage;
 
-  constructor(public events:Events, public http:Http) {
+  constructor(public events:Events, public http:Http, public storage:Storage) {
+    this.localStorage = localStorage;
     this.http = http;
   }
 
@@ -37,34 +39,34 @@ export class UserData {
   }
 
   signup(username) {
-    this.storage.set(this.HAS_LOGGED_IN, true);
+    this.localStorage.set(this.HAS_LOGGED_IN, true);
     this.setUsername(username);
     this.events.publish("user:signup");
   }
 
   logout() {
-    this.storage.remove(this.HAS_LOGGED_IN);
-    this.storage.remove("token");
-    this.storage.remove("username");
+    this.localStorage.remove(this.HAS_LOGGED_IN);
+    this.localStorage.remove("token");
+    this.localStorage.remove("username");
     this.events.publish("user:logout");
   }
 
   setToken(token) {
-    this.storage.set("token", token);
+    this.localStorage.set("token", token);
   }
 
   getToken() {
-    return this.storage.get("token").then((value) => {
+    return this.localStorage.get("token").then((value) => {
       return value;
     });
   }
 
   setUsername(username) {
-    this.storage.set("username", username);
+    this.localStorage.set("username", username);
   }
 
   getUsername() {
-    return this.storage.get("username").then((value) => {
+    return this.localStorage.get("username").then((value) => {
       return value;
     });
   }
@@ -76,7 +78,7 @@ export class UserData {
   // return a promise
   hasLoggedIn() {
     let self = this;
-    return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
+    return this.localStorage.get(this.HAS_LOGGED_IN).then((value) => {
       self.hasLogin = value === "true";
       return self.hasLogin;
     });

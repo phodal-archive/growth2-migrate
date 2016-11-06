@@ -12,7 +12,7 @@ export class AnalyticsServices {
   }
 
   trackView(view) {
-    if (window.cordova) {
+    if (window['cordova']) {
       this.initID();
       GoogleAnalytics.trackView(view);
     } else {
@@ -23,7 +23,7 @@ export class AnalyticsServices {
   }
 
   trackEvent(category, action) {
-    if (window.cordova) {
+    if (window['cordova']) {
       this.initID();
       GoogleAnalytics.trackEvent(category, action);
     } else {
