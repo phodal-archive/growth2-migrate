@@ -9,6 +9,7 @@ import {MainView} from "../pages/main/main";
 import {TutorialPage} from "../pages/tutorial/tutorial";
 import {SkillMapService} from "../services/skill.map.services";
 import {AnalyticsServices} from "../services/analytics.services";
+import {BookmarkServices} from "../services/bookmark.services";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {AnalyticsServices} from "../services/analytics.services";
   ],
   providers: [
     SkillMapService,
+    BookmarkServices,
     AnalyticsServices,
     UserData,
     disableDeprecatedForms(),

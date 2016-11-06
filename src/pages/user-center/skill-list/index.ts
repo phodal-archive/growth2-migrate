@@ -1,14 +1,15 @@
-import {Component} from "@angular/core";
+import {Component, NgModule} from "@angular/core";
 import {SkillMapService} from "../../../services/skill.map.services";
-import {CORE_DIRECTIVES} from "@angular/common";
-import {FORM_DIRECTIVES} from "@angular/forms";
-import {RatingComponent} from "../../../components/ratings/index";
 import {AnalyticsServices} from "../../../services/analytics.services";
+import {Ionic2RatingModule} from "ionic2-rating";
 
 @Component({
-  templateUrl: "index.html",
-  directives: [RatingComponent, FORM_DIRECTIVES, CORE_DIRECTIVES],
-  providers: [SkillMapService, AnalyticsServices]
+  templateUrl: "index.html"
+})
+@NgModule({
+  imports: [
+    Ionic2RatingModule
+  ]
 })
 export class SkillListPage {
   public allSkills;

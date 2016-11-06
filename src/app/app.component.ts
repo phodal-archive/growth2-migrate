@@ -15,7 +15,7 @@ export class MyApp {
   userData = null;
 
   constructor(platform: Platform, userData: UserData) {
-    this.rootPage = TutorialPage;
+    this.rootPage = TabsPage;
     this.initializeApp(platform);
     this.userData = userData;
     this.userData.logout();

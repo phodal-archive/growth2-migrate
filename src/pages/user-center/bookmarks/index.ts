@@ -1,6 +1,4 @@
-import {Component} from "@angular/core";
-import {CORE_DIRECTIVES} from "@angular/common";
-import {FORM_DIRECTIVES} from "@angular/forms";
+import {Component, NgModule} from "@angular/core";
 import {RatingComponent} from "../../../components/ratings/index";
 import {BookmarkServices} from "../../../services/bookmark.services";
 import {HtmlModal} from "../../../modals/HtmlModal/index";
@@ -9,14 +7,17 @@ import {forEach} from "lodash";
 import {AnalyticsServices} from "../../../services/analytics.services";
 
 @Component({
-  templateUrl: "index.html",
-  directives: [RatingComponent, FORM_DIRECTIVES, CORE_DIRECTIVES],
-  providers: [BookmarkServices, AnalyticsServices]
+  templateUrl: "index.html"
+})
+@NgModule({
+  imports: [
+    RatingComponent
+  ]
 })
 export class BookmarksPage {
   public bookmarks = [];
 
-  constructor(public modalCtrl:ModalController, public bookmarkServices:BookmarkServices, public analytics:AnalyticsServices) {
+  constructor(public modalCtrl: ModalController, public bookmarkServices: BookmarkServices, public analytics: AnalyticsServices) {
     let self = this;
     this.bookmarkServices.getAllBookmarks()
       .then(result => {
