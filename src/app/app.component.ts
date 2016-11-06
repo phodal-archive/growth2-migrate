@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import {Component} from '@angular/core';
+import {Platform} from 'ionic-angular';
+import {StatusBar, Splashscreen} from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import {TabsPage} from '../pages/tabs/tabs';
 import {TutorialPage} from "../pages/tutorial/tutorial";
 import {UserData} from "../providers/user-data";
 
@@ -13,7 +13,7 @@ import {UserData} from "../providers/user-data";
 export class MyApp {
   rootPage = TabsPage;
 
-  constructor(public platform:Platform, public userData:UserData) {
+  constructor(platform: Platform, userData: UserData) {
     this.rootPage = TutorialPage;
     this.initializeApp(platform);
     this.userData.logout();

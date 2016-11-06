@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Storage, LocalStorage} from "ionic-angular/index";
+import {Storage} from "@ionic/storage";
 import * as _ from "lodash";
 import {ALL_SKILLS} from "../data/ALL_SKILLS";
 
@@ -7,8 +7,8 @@ import {ALL_SKILLS} from "../data/ALL_SKILLS";
 export class SkillMapService {
   public localStorage;
 
-  constructor() {
-    this.localStorage = new Storage(LocalStorage);
+  constructor(public storage: Storage) {
+    this.localStorage = storage;
   };
 
   getSkills() {
@@ -69,7 +69,7 @@ export class SkillMapService {
     });
   }
 
-  getSkillByDomain(domain:any, callback) {
+  getSkillByDomain(domain: any, callback) {
     let domainSkills = [];
     this.getSkills().then(function (localSkills) {
       domainSkills = ALL_SKILLS[domain];

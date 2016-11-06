@@ -1,12 +1,12 @@
 import {Injectable} from "@angular/core";
-import {Storage, LocalStorage} from "ionic-angular/index";
+import {Storage} from "@ionic/storage";
 
 @Injectable()
 export class BookmarkServices {
   public localStorage;
 
-  constructor() {
-    this.localStorage = new Storage(LocalStorage);
+  constructor(public storage:Storage) {
+    this.localStorage = storage;
   };
 
   getAllBookmarks() {
