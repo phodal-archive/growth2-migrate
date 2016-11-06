@@ -27,6 +27,9 @@
     "ionic-native": "2.2.3",
     "ionicons": "3.0.0",
     "rxjs": "5.0.0-beta.12",
+    "lodash": "^4.13.1",
+    "hammerjs": "^2.0.8",
+    "marked": "^0.3.5",
     "zone.js": "0.6.21"
   },
   "devDependencies": {
@@ -47,7 +50,8 @@
       "platform": "ios",
       "version": "",
       "locator": "ios"
-    }
+    },
+    "android"
   ],
   "description": "growth2: An Ionic project"
 }

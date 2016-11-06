@@ -3,6 +3,8 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import {TutorialPage} from "../pages/tutorial/tutorial";
+import {UserData} from "../providers/user-data";
 
 
 @Component({
@@ -10,6 +12,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 })
 export class MyApp {
   rootPage = TabsPage;
+
+  constructor(public platform:Platform, public userData:UserData) {
+    this.rootPage = TutorialPage;
+    this.initializeApp(platform);
+    this.userData.logout();
+  }
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
