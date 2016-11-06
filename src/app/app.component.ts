@@ -12,10 +12,12 @@ import {UserData} from "../providers/user-data";
 })
 export class MyApp {
   rootPage = TabsPage;
+  userData = null;
 
   constructor(platform: Platform, userData: UserData) {
     this.rootPage = TutorialPage;
     this.initializeApp(platform);
+    this.userData = userData;
     this.userData.logout();
   }
 
